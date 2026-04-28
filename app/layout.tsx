@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Breathe Free - تنفس بحرية واستعد صحتك',
     description: 'التطبيق الأول عربياً المدعوم بالذكاء الاصطناعي لمساعدتك على ترك الفيب نهائياً.',
-    url: 'https://breathe-free.app', // Placeholder URL
+    url: 'https://breath-free-one.vercel.app',
     siteName: 'Breathe Free',
     images: [
       {

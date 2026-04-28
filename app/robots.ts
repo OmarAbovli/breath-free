@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/settings/', '/onboarding/'],
     },
-    sitemap: 'https://breathe-free.app/sitemap.xml',
+    sitemap: 'https://breath-free-one.vercel.app/sitemap.xml',
   }
 }

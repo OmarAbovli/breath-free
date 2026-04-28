@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://breathe-free.app'
+  const baseUrl = 'https://breath-free-one.vercel.app'
   
   return [
     {
