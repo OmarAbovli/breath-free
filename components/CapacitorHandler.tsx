@@ -17,10 +17,11 @@ export function CapacitorHandler() {
         if (url.protocol === 'breathefree:' && url.host === 'login') {
           const token = url.searchParams.get('token')
           if (token) {
-            // Here we can set a cookie or navigate to a special route that handles the token
-            // For next-auth, it's a bit tricky to set the session manually from a token via URL
-            // but we can try to set the session cookie if the server generates it
-            router.push(`/api/auth/callback/google?token=${token}`)
+            // Navigate to the session-set route to establish the session in the WebView
+            router.push(`/api/auth/session-set?token=${token}&callbackUrl=/`)
+          } else {
+            // Fallback for cases without token
+            router.push('/')
           }
         }
       })

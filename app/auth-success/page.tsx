@@ -2,16 +2,25 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { getSessionToken } from '@/lib/actions'
 
 export default function AuthSuccess() {
   const router = useRouter()
 
   useEffect(() => {
     // This page is reached after successful web login
-    // It will trigger the deep link to return to the app
-    setTimeout(() => {
-      window.location.href = 'breathefree://login'
-    }, 1000)
+    // It will trigger the deep link to return to the app with the session token
+    const triggerDeepLink = async () => {
+      const token = await getSessionToken()
+      if (token) {
+        window.location.href = `breathefree://login?token=${token}`
+      } else {
+        // If no token, just try to go back
+        window.location.href = 'breathefree://login'
+      }
+    }
+
+    setTimeout(triggerDeepLink, 1000)
     
     // Fallback back to home if user is on web
     setTimeout(() => {

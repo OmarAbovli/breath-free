@@ -123,16 +123,7 @@ export default function HomeDashboard() {
           <div className="space-y-3">
             <Button
               size="lg"
-              onClick={async () => {
-                if (typeof window !== 'undefined' && (window as any).Capacitor) {
-                  const { Browser } = await import('@capacitor/browser')
-                  await Browser.open({ 
-                    url: 'https://breath-free-one.vercel.app/api/auth/signin/google?callbackUrl=https://breath-free-one.vercel.app/auth-success' 
-                  })
-                } else {
-                  signIn('google')
-                }
-              }}
+              onClick={() => signIn('google', { callbackUrl: '/auth-success' })}
               className="w-full h-16 rounded-3xl bg-primary hover:bg-primary/90 text-primary-foreground gap-4 text-lg font-bold shadow-[0_0_30px_-5px] shadow-primary/40 group overflow-hidden relative"
             >
               <div className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />

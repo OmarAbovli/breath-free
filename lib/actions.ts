@@ -7,6 +7,7 @@ import { authOptions } from "./auth"
 import { eq, and, sql, gte, desc, count } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
 import { generateAIInsight, getAICoachResponse } from "./ai"
+import { cookies } from "next/headers"
 
 async function getSession() {
   return await getServerSession(authOptions)
@@ -505,4 +506,12 @@ export async function clearChatHistory() {
   if (!session?.user) return
   const userId = (session.user as any).id
   await db.delete(aiMemory).where(eq(aiMemory.userId, userId))
+}
+
+export async function getSessionToken() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('next-auth.session-token')?.value || 
+                cookieStore.get('__Secure-next-auth.session-token')?.value ||
+                cookieStore.get('authjs.session-token')?.value
+  return token
 }
