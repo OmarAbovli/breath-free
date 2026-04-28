@@ -127,7 +127,7 @@ export default function HomeDashboard() {
                 if (typeof window !== 'undefined' && (window as any).Capacitor) {
                   const { Browser } = await import('@capacitor/browser')
                   await Browser.open({ 
-                    url: 'https://breath-free-one.vercel.app/api/auth/signin/google?callbackUrl=breathefree://login' 
+                    url: 'https://breath-free-one.vercel.app/api/auth/signin/google?callbackUrl=https://breath-free-one.vercel.app/auth-success' 
                   })
                 } else {
                   signIn('google')
