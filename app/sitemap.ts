@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/community`,
       lastModified: new Date(),
       changeFrequency: 'hourly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/leaderboard`,
@@ -26,13 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/coach`,
       lastModified: new Date(),
       changeFrequency: 'hourly',
-      priority: 0.8,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/settings`,
       lastModified: new Date(),
       changeFrequency: 'hourly',
-      priority: 0.8,
+      priority: 0.2,
     },
     {
       url: `${baseUrl}/analytics`,
